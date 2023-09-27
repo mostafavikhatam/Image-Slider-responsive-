@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:  sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: white;
+}
+.container{
+    max-width: 1200px;
+    width: 95%;
+}
+.slider-wrapper .image-list{
+    display: grid;
+    gap: 18px;
+    font-size: 0;
+    overflow-x:auto;
+    margin-bottom: 30px;
+    scrollbar-width:none;
+    grid-template-columns: repeat(10 , 1fr);
+}
+.slider-wrapper .image-list::-webkit-scrollbar{
+    display: none;
+}
+.slider-wrapper .image-list .image-item{
+    width: 325px;
+    height: 400px;
+    object-fit: cover;
+    border-radius:8px;
+}
+.slider-scrollbar{
+    height: 24px;
+    width: 100%;
+    
+    display: flex;
+    align-items: center;
+}
+.scrollbar-track{
+    height: 2px;
+    width: 100%;
+    background-color: gainsboro;
+    border-radius: 4px;
+    position: relative;
+}
+.slider-scrollbar:hover .scrollbar-track{
+    height: 4px;
+}
+.slider-scrollbar .scrollbar-thumb:active{
+    cursor: grabbing;
+    height: 8px;
+    top: -2px;
+}
+.scrollbar-thumb{
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    background: black;
+    border-radius: inherit;
+    cursor: grab;
+}
+.scrollbar-thumb::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -10px;
+    bottom: -10px;
+}
+.slider-wrapper{
+    position: relative;
+}
+.slide-button{
+    width: 45px;
+    height: 45px;
+    top: 50%;
+    border-radius: 50%;
+    color: whitesmoke;
+    background-color: black;
+    font-size: 2.2rem;
+    border: none;
+    outline: none;
+    position: absolute;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.slide-button:hover{
+  background: #444;  
+}
+.slide-button#prev-slider{
+    left: -20px;
+    display: none;
+}
+.slide-button#next-slider{
+    right: -20px;
+}
+@media (max-width:1023px) {
+    .slider-wrapper .slide-button{
+        display: none!important;
+    }
+    .slider-wrapper .image-list{
+        gap: 10px;;
+        margin-bottom: 15px;
+    }
+    .slider-wrapper .image-list .image-item{
+        width: 280px;
+        height: 380px;
+    }
+    .slider-scrollbar .scrollbar-thumb{
+        width: 20%;
+    }
+}
